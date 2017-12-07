@@ -1,10 +1,7 @@
-@primary-color-light: #cfeeff;
-@primary-color: #27b3fe;
-@primary-color-deep: #19afff;
-@primary-color-deeper: #00a6ff;
-@success-color: #4cd964;
-@danger-color: #f94242;
+@import "../../node_modules/cefc-ui-style/src/mixins/utils.less";
+@import "../../@{theme}";
 @radioPrefixCls: cefc-radio;
+
 .@{radioPrefixCls} {
     font-weight: 400;
     padding-left: 16px;
@@ -16,10 +13,10 @@
     display: inline-block;
     vertical-align: middle;
     &:hover {
-        color: @primary-color-deep;
+        color: @brand-primary-tap;
         .@{radioPrefixCls}__status {
             &:before {
-                border-color: @primary-color-deep;
+                border-color: @brand-primary-tap;
             }
         }
     }
@@ -27,11 +24,11 @@
         outline: none;
         .@{radioPrefixCls}__status {
             &:before {
-                border-color: @primary-color;
+                border-color: @brand-primary;
             }
         }
         .@{radioPrefixCls}__text {
-            color: @primary-color;
+            color: @brand-primary;
         }
     }
     input[type="radio"] {
@@ -39,13 +36,13 @@
         &:checked {
             +.@{radioPrefixCls}__status {
                 &:before {
-                    border-color: @primary-color-deep;
+                    border-color: @brand-primary-tap;
                 }
                 &:after {
                     display: block;
                 }
                 +.@{radioPrefixCls}__test {
-                    color: @primary-color-deep;
+                    color: @brand-primary-tap;
                 }
             }
         }
@@ -91,7 +88,7 @@
         width: 8px;
         height: 8px;
         display: none;
-        background-color: @primary-color-deep;
+        background-color: @brand-primary-tap;
     }
 }
 
