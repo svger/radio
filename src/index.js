@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import classnames from "classnames";
 import "./style/index.less";
 import Radio from "./Radio";
+import PropTypes from "prop-types";
 
 class RadioGroup extends Component {
   constructor(props) {
@@ -57,15 +58,9 @@ class RadioGroup extends Component {
 }
 
 RadioGroup.propTypes = {
-  // 选中的值
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  // 初始化时选中的值（不可控）
-  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  // 切换选择后的回调。参数为选中的值
-  onChange: PropTypes.func,
-
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // 选中的值
+  defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // 初始化时选中的值（不可控）
+  onChange: PropTypes.func, // 切换选择后的回调。参数为选中的值
   customProp(props) {
     if ("value" in props && !props.onChange) {
       return new Error(

@@ -1,7 +1,7 @@
-import React, { PropTypes } from "react";
+import React, { Component } from "react";
 import classnames from "classnames";
 import "./style/Radio.less";
-
+import PropTypes from "prop-types";
 const Radio = props => {
   const {
     children,
@@ -46,20 +46,11 @@ const Radio = props => {
 };
 
 Radio.propTypes = {
-  // 值，如果结合 RadioGroup 使用，与其 value 或 defaultValue 对应
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-
-  // 单独使用时，是否选中，与 RadioGroup 一起使用时无需指定
-  checked: PropTypes.bool,
-
-  // 单独使用时，初始是否选中（不可控），与 RadioGroup 一起使用时无需指定
-  defaultChecked: PropTypes.bool,
-
-  // 单独使用时，切换选中后的回调，参数为 event 对象，与 RadioGroup 一起使用时无需指定
-  onChange: PropTypes.func,
-
-  // 是否禁用
-  disabled: PropTypes.bool
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // 值，如果结合 RadioGroup 使用，与其 value 或 defaultValue 对应
+  checked: PropTypes.bool, // 单独使用时，是否选中，与 RadioGroup 一起使用时无需指定
+  defaultChecked: PropTypes.bool, // 单独使用时，初始是否选中（不可控），与 RadioGroup 一起使用时无需指定
+  onChange: PropTypes.func, // 单独使用时，切换选中后的回调，参数为 event 对象，与 RadioGroup 一起使用时无需指定
+  disabled: PropTypes.bool // 是否禁用
 };
 
 export default Radio;
