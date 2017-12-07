@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import classnames from "classnames";
 import "./style/Radio.less";
 import PropTypes from "prop-types";
+const defaultPrefixCls = "cefc-radio";
+
 const Radio = props => {
   const {
     children,
@@ -12,18 +14,13 @@ const Radio = props => {
     defaultChecked,
     onChange,
     disabled,
+    prefixCls,
     ...other
   } = props;
 
   const inputProps = { value, checked, defaultChecked, onChange, disabled };
 
-  const classNames = classnames(
-    "bfd-radio",
-    {
-      "bfd-radio--disabled": inputProps.disabled
-    },
-    className
-  );
+  const classNames = classnames(prefixCls, { [`${prefixCls}--disabled`]: inputProps.disabled }, className);
 
   return (
     <label
@@ -39,10 +36,14 @@ const Radio = props => {
       {...other}
     >
       <input type="radio" {...inputProps} />
-      <span className="bfd-radio__status" />
-      {children && <span className="bfd-radio__text">{children}</span>}
+      <span className={`${prefixCls}__status`}/>
+      {children && <span className={`${prefixCls}__text`}>{children}</span>}
     </label>
   );
+};
+
+Radio.defaultProps = {
+  prefixCls: defaultPrefixCls
 };
 
 Radio.propTypes = {
@@ -50,7 +51,8 @@ Radio.propTypes = {
   checked: PropTypes.bool, // 单独使用时，是否选中，与 RadioGroup 一起使用时无需指定
   defaultChecked: PropTypes.bool, // 单独使用时，初始是否选中（不可控），与 RadioGroup 一起使用时无需指定
   onChange: PropTypes.func, // 单独使用时，切换选中后的回调，参数为 event 对象，与 RadioGroup 一起使用时无需指定
-  disabled: PropTypes.bool // 是否禁用
+  disabled: PropTypes.bool, // 是否禁用
+  prefixCls: PropTypes.string
 };
 
 export default Radio;

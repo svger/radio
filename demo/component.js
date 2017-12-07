@@ -10,13 +10,7 @@ class App extends React.Component {
   render() {
 
     return <div style={{ height: "800px" }}>
-        <RadioGroup defaultValue="mi" onChange={value => console.log(value)}>
-          <Radio value="apple">苹果</Radio>
-          <Radio value="mi">小米</Radio>
-          <Radio value="samsung" disabled>
-            三星
-          </Radio>
-        </RadioGroup> 
+        <Radio value="apple">苹果</Radio>
       </div>;
   }
 }

@@ -3,6 +3,7 @@ import classnames from "classnames";
 import "./style/index.less";
 import Radio from "./Radio";
 import PropTypes from "prop-types";
+const defaultPrefixCls = "cefc-radio-group";
 
 class RadioGroup extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class RadioGroup extends Component {
       className,
       defaultValue,
       onChange,
+      prefixCls,
       ...other
     } = this.props;
     const { value } = this.state;
@@ -46,21 +48,21 @@ class RadioGroup extends Component {
         }
       });
     });
-    return (
-      <div
-        className={classnames("radios bfd-radio-group", className)}
-        {...other}
-      >
+    return <div className={classnames(`radios ${prefixCls}`, className)} {...other}>
         {radiosWithProps}
-      </div>
-    );
+      </div>;
   }
 }
+
+RadioGroup.defaultProps = {
+  prefixCls: defaultPrefixCls
+};
 
 RadioGroup.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // 选中的值
   defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), // 初始化时选中的值（不可控）
   onChange: PropTypes.func, // 切换选择后的回调。参数为选中的值
+  prefixCls: PropTypes.string,
   customProp(props) {
     if ("value" in props && !props.onChange) {
       return new Error(

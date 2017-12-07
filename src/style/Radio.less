@@ -4,8 +4,8 @@
 @primary-color-deeper: #00a6ff;
 @success-color: #4cd964;
 @danger-color: #f94242;
-
-.bfd-radio {
+@radioPrefixCls: cefc-radio;
+.@{radioPrefixCls} {
     font-weight: 400;
     padding-left: 16px;
     position: relative;
@@ -17,7 +17,7 @@
     vertical-align: middle;
     &:hover {
         color: @primary-color-deep;
-        .bfd-radio__status {
+        .@{radioPrefixCls}__status {
             &:before {
                 border-color: @primary-color-deep;
             }
@@ -25,26 +25,26 @@
     }
     &:focus {
         outline: none;
-        .bfd-radio__status {
+        .@{radioPrefixCls}__status {
             &:before {
                 border-color: @primary-color;
             }
         }
-        .bfd-radio__text {
+        .@{radioPrefixCls}__text {
             color: @primary-color;
         }
     }
     input[type="radio"] {
         display: none;
         &:checked {
-            +.bfd-radio__status {
+            +.@{radioPrefixCls}__status {
                 &:before {
                     border-color: @primary-color-deep;
                 }
                 &:after {
                     display: block;
                 }
-                +.bfd-radio__test {
+                +.@{radioPrefixCls}__test {
                     color: @primary-color-deep;
                 }
             }
@@ -52,9 +52,9 @@
     }
 }
 
-.bfd-radio--disabled {
+.@{radioPrefixCls}--disabled {
     cursor: not-allowed;
-    .bfd-radio__status {
+    .@{radioPrefixCls}__status {
         &:before {
             border-color: #eceff1!important;
         }
@@ -62,12 +62,12 @@
             background-color: #eceff1!important;
         }
     }
-    .bfd-radio__text {
+    .@{radioPrefixCls}__text {
         color: #999!important;
     }
 }
 
-.bfd-radio__status {
+.@{radioPrefixCls}__status {
     &:before,
     &:after {
         content: '';
@@ -95,7 +95,7 @@
     }
 }
 
-.bfd-radio__text {
+.@{radioPrefixCls}__text {
     pointer-events: none;
     margin-left: 7px;
 }
